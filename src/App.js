@@ -3,7 +3,7 @@ import React, { useReducer } from 'react';
 import './App.css';
 
 import reducer, { initialState } from "./reducers/index";
-import { applyNumber, changeOperation, clearDisplay } from "./actions/index";
+import { applyNumber, changeOperation, clearDisplay, addMemory, recallMemory, clearMemory } from "./actions/index";
 
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
@@ -32,9 +32,9 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"}/>
-              <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton onClick={() => dispatch(addMemory())} value={"M+"}/>
+              <CalcButton onClick={() => dispatch(recallMemory())} value={"MR"}/>
+              <CalcButton onClick={() => dispatch(clearMemory())} value={"MC"}/>
             </div>
 
             <div className="row">
